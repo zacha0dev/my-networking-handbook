@@ -19,5 +19,8 @@ This handbook is a simple guide with basic networking ideas. It’s made for qui
 
 ![Netowrking Image](https://images.unsplash.com/photo-1655635643486-a17bc48771ff?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1332)
 
+### Contributions
+Feel free to fork this repo or open issues, but direct pushes are restricted.
+
 ### Connect With Me 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue "LinkedIn")](https://www.linkedin.com/in/zacharythomasallen/) - [![GitHub](https://img.shields.io/badge/GitHub-Profile-black "GitHub")](https://github.com/zacha0dev)
