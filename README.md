@@ -13,7 +13,7 @@ This handbook is a simple guide with basic networking ideas. It’s made for qui
 5. [Automation & Ifrastructure-as-Code (IAC)](.\5-automation-and-iac\automation-and-iac.md)
 6. [Application and Services](.\6-applications-and-services\applications-and-services.md)
 7. [Ai and Intelligent Networking](.\7-ai-and-intelligent-networking\ai-and-intelligent-networking.md)
-a. [Deployment Labs](.\deployment-labs\deployment-labs.md)
+8. [Deployment Labs](.\8-deployment-labs\deployment-labs.md)
 
 </br>
 
