@@ -1,3 +1,3 @@
-([go-home](..\README.md))
+([go-home](../README.md))
 
 # Automation & Ifrastructure-as-Code (IAC) 

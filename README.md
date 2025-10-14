@@ -7,13 +7,13 @@ This handbook is a simple guide with basic networking ideas. It’s made for qui
 ## Content
 
 1. [Networking Fundamentals](./1-networking-fundamentals/networking-fundamentals.md)
-2. [Cloud Overview](.\2-cloud-overview/cloud-overview.md)
-3. [System Design](.\3-system-design\system-design.md)
-4. [Security & Access](.\4-security-and-access\security-and-access.md)
-5. [Automation & Ifrastructure-as-Code (IAC)](.\5-automation-and-iac\automation-and-iac.md)
-6. [Application and Services](.\6-applications-and-services\applications-and-services.md)
-7. [Ai and Intelligent Networking](.\7-ai-and-intelligent-networking\ai-and-intelligent-networking.md)
-8. [Deployment Labs](.\8-deployment-labs\deployment-labs.md)
+2. [Cloud Overview](./2-cloud-overview/cloud-overview.md)
+3. [System Design](./3-system-design/system-design.md)
+4. [Security & Access](./4-security-and-access/security-and-access.md)
+5. [Automation & Ifrastructure-as-Code (IAC)](./5-automation-and-iac/automation-and-iac.md)
+6. [Application and Services](./6-applications-and-services/applications-and-services.md)
+7. [Ai and Intelligent Networking](./7-ai-and-intelligent-networking/ai-and-intelligent-networking.md)
+8. [Deployment Labs](./8-deployment-labs/deployment-labs.md)
 
 </br>
 

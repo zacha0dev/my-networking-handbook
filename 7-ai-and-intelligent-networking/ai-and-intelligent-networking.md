@@ -1,3 +1,3 @@
-([go-home](..\README.md))
+([go-home](../README.md))
 
 # Ai and Intelligent Networking
