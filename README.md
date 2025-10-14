@@ -14,6 +14,7 @@ This handbook is a simple guide with basic networking ideas. It’s made for qui
 6. [Application and Services](./6-applications-and-services/applications-and-services.md)
 7. [Ai and Intelligent Networking](./7-ai-and-intelligent-networking/ai-and-intelligent-networking.md)
 8. [Deployment Labs](./8-deployment-labs/deployment-labs.md)
+9. [Troubleshooting & Tools](./9-troubleshooting-and-tools/troubleshooting-and-tools.md)
 
 </br>
 
