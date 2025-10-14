@@ -18,5 +18,4 @@ a. [Deployment Labs](.\deployment-labs\deployment-labs.md)
 ---
 
 ### Connect With Me 
-- Follow me on LinkedIn: [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue "LinkedIn")](https://www.linkedin.com/in/zacharythomasallen/)
-- Check out my Projects: [![GitHub](https://img.shields.io/badge/GitHub-Profile-black "GitHub")](https://github.com/zacha0dev)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue "LinkedIn")](https://www.linkedin.com/in/zacharythomasallen/) - [![GitHub](https://img.shields.io/badge/GitHub-Profile-black "GitHub")](https://github.com/zacha0dev)
