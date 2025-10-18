@@ -1,197 +1,112 @@
 ([go-home](../README.md))
 
-# 🧰 Troubleshooting & Tools
+#### Page Contents
 
-Goal: Build a strong, repeatable mindset for troubleshooting networks, apps, and services — with a focus on **Azure-based systems** and **common real-world tools** that every engineer should know.  
-This section serves as a quick reference you can return to daily at work or during labs.
+- [Troubleshooting Mindset](#troubleshooting-mindset)
+- [Simple Troubleshooting Framework](#simple-troubleshooting-framework)
+- [OSI Model Quick Reference](#osi-model-quick-reference)
+- [Understanding Latency, Bandwidth & Throughput](#understanding-latency-bandwidth--throughput)
+- [Tools Reference Library](#tools-reference-library)
 
----
+</br>
+</br>
 
-## 🧭 The Mindset
+# Troubleshooting & Tools 
+A quick reference guide for diagnosing issues across networks, applications, and services, along with commonly used tools in modern environments.
 
-Troubleshooting isn’t guesswork — it’s **structured investigation**.  
-At its core, it’s about answering one question:  
-> “Where is the problem — and what data proves it?”
+</br>
 
-**Good troubleshooters:**
-- Observe symptoms before making changes.  
-- Isolate each layer (physical → network → service → app).  
-- Collect logs and evidence first, not assumptions.  
-- Verify fixes with data, not “it feels faster.”  
+## Troubleshooting Mindset 
+When troubleshooting, the goal is to solve an error, restore a service, or determine root cause with simplicity and speed. </br>
+The **goal** should be: Observe → Isolate → Test → Verify → Resolve → Document.
 
----
+## Simple Troubleshooting Framework 
+1. **Identify the Problem** - Start with the symptom, not the assumption; clarify what’s broken, when it last worked, and what changed.
+2. **Define Scope** - Determine if the issue is local or global, and identify the affected layer (network, system, app, identity, or cloud).
+3. **Reproduce the Issue** - Confirm the problem is consistent and repeatable using simple validation commands (ping, curl, traceroute).
+4. **Isolate the Fault** - Eliminate components layer by layer until you find the boundary where normal operation stops.
+5. **Form and Test Hypothesis** - Change one variable at a time, validate results, and confirm whether the action affects the outcome.
+6. **Implement Resolution** - Apply the smallest effective fix, verify recovery, and monitor for stability.
+7. **Document Findings** - Capture root cause, resolution, and lessons learned to prevent future recurrence.
 
-## 🧱 Network Troubleshooting Flow
+</br>
 
-| Layer | What to Check | Example Questions |
-|--------|----------------|------------------|
-| **1. Physical / Link** | Cables, NICs, Wi-Fi, link lights | Is the device actually connected? |
-| **2. Network (IP)** | IP address, gateway, subnet mask | Can I reach the next hop? |
-| **3. Transport (Ports)** | TCP/UDP reachability | Is the port open? Is something blocking it? |
-| **4. Application** | API, web page, authentication | Is the app responding correctly? |
-| **5. Performance** | Latency, throughput, packet loss | Is it slow or dropping data? |
-| **6. Cloud Routing** | VNet peering, NSGs, UDRs, Firewalls | Are routes and rules correct? |
-| **7. Identity / Access** | Permissions, managed identities | Does the request even have rights to connect? |
+## OSI Model Quick Reference
+The OSI model helps you visualize where communication might break down. Each layer handles a different part of how systems talk - from physical signals to the applications users interact with. When tracing an issue, think layer by layer to pinpoint whether the fault is in the wire, a network device, or the software stack.
 
-Troubleshoot **from the bottom up** (connectivity → function → performance → permissions), and confirm each layer before moving on.
+| Layer | Name | Description | Common Protocols / Examples |
+|:------|:------|:-------------|:-----------------------------|
+| **7** | **Application** | User-facing layer where services run and data is displayed. | HTTP, HTTPS, DNS, FTP, SMTP, SSH |
+| **6** | **Presentation** | Translates and secures data (encryption, compression, encoding). | SSL/TLS, JSON, XML, JPEG |
+| **5** | **Session** | Manages communication sessions between systems. | RPC, NetBIOS, SQL Session |
+| **4** | **Transport** | Controls reliable delivery and ports for communication. | TCP, UDP |
+| **3** | **Network** | Handles IP addressing, routing, and logical paths. | IP, ICMP, IPSec |
+| **2** | **Data Link** | Moves data between devices on the same network segment. | Ethernet, ARP, VLAN, PPP |
+| **1** | **Physical** | Transmits raw bits over cables, fiber, or wireless. | Cables, NICs, Hubs, Wi-Fi |
 
----
+### Memory Tip
+> **Please Do Not Throw Sausage Pizza Away**  
+> _(Physical → Data Link → Network → Transport → Session → Presentation → Application)_
 
-## ⚙️ Common Misunderstandings
+</br>
 
-| Myth | Reality |
-|------|----------|
-| “Ping works, so everything’s fine.” | Ping only checks ICMP, not app traffic. TCP/UDP can still fail. |
-| “It’s slow, so it must be the network.” | Often the issue is DNS, CPU, or backend delay — not bandwidth. |
-| “Throughput equals speed.” | High bandwidth doesn’t mean low latency; 10 Gbps can still feel slow. |
-| “Azure VNets automatically talk to each other.” | Not without **VNet peering** or **Private Link**. |
-| “Private Endpoint means private DNS automatically works.” | You still need a **Private DNS Zone** mapped correctly. |
-| “Traceroute always works in the cloud.” | ICMP may be filtered — use **Network Watcher** or TCP-based tools instead. |
-
----
-
-## 📡 Understanding Latency, Bandwidth & Throughput
-
+## Understanding Latency, Bandwidth & Throughput
 | Concept | Meaning | Example |
 |----------|----------|----------|
-| **Latency** | Time it takes for one packet to reach destination (delay) | Measured in milliseconds (ms) |
-| **Bandwidth** | Maximum data capacity of a path | Like lane width on a highway |
-| **Throughput** | Actual data rate achieved | Affected by congestion, packet loss, TCP windowing |
-| **Jitter** | Variation in packet delay | Can cause call/video issues |
-| **Packet Loss** | Dropped packets during transmission | Leads to retransmissions and slowdown |
+| **Latency** | Time it takes for one packet to reach destination (delay). | Measured in milliseconds (ms). |
+| **Bandwidth** | Maximum data capacity of a connection path. | Like the width of a highway lane. |
+| **Throughput** | Actual data rate achieved in real time. | Affected by congestion, loss, or TCP windowing. |
+| **Jitter** | Variation in packet delay between transmissions. | Can cause call or video quality issues. |
+| **Packet Loss** | Dropped packets during transmission. | Leads to retransmissions and slowdowns. |
 
-**Tip:** Always test both **latency** and **throughput** before assuming where slowness comes from.
+**Tip:** Always test **latency**, **throughput**, and **packet loss** before assuming where a slowdown originates.
 
----
+### Quick Diagnostic Flow
+> **Symptom → Scope → Reproduce → Isolate → Test → Resolve → Verify → Document**
 
-## 🧠 Azure Tools for Troubleshooting
+</br>
 
-| Azure Tool | Focus Area | What It Helps You See |
-|-------------|-------------|------------------------|
-| **Network Watcher** | Connectivity, flow logs, packet capture | Path visibility, NSG or route misconfigurations |
-| **Connection Monitor** | Ongoing reachability testing | Tracks endpoint health across regions |
-| **NSG Flow Logs** | Ingress/Egress logging | Shows allowed/denied traffic |
-| **Azure Monitor / Insights** | Performance & availability | Aggregated metrics, alerts, dashboards |
-| **App Insights** | Application-level tracing | Response time, dependency failures |
-| **Diagnostic Settings** | Logging across resources | Stream logs to Log Analytics or Storage |
-| **Front Door / Traffic Manager metrics** | Global traffic routing | Endpoint health, latency by region |
+## Tools Reference Library
+A growing list of practical tools, commands, and utilities used across real troubleshooting workflows - from networking to coding and automation.  
+Each entry links to its own focused page for syntax, examples, and quick testing commands.
 
-> Cloud-native tools are your **first stop** before jumping into CLI or third-party captures.
+### Cloud & Development Tools
+| Tool | Type | Use For |
+|------|------|---------|
+| **AzCopy** | Cloud / Storage | High-performance CLI for copying data to and from Azure Storage. Ideal for large data migrations. |
+| **Azure CLI** | Cloud | Manage Azure resources and services from any shell using `az` commands. Ideal for scripting, IaC validation, and diagnostics. |
+| **Azure Network Watcher** | Cloud / Networking | Monitor, capture, and analyze traffic flows, NSGs, and connectivity between Azure resources. |
+| **Azure PowerShell** | Cloud / Automation | PowerShell `Az` module for managing Azure via cmdlets and scripts. Great for hybrid Windows + cloud workflows. |
+| **Azure Storage Explorer** | Cloud GUI | Visual management tool for Azure Blob, Queue, and Table storage — inspect data, upload/download blobs, and debug access. |
+| **Bicep CLI** | IaC (Azure Native) | Deploy Azure resources with a clean, declarative syntax instead of raw ARM templates. |
+| **Git** | Source Control | Distributed version control for managing repositories, branches, and commits locally or remotely. |
+| **Git Credential Manager (GCM)** | Auth Utility | Handles HTTPS credential caching for Git and GitHub CLI. Required for seamless push/pull operations. |
+| **GitHub CLI (`gh`)** | DevOps / Collaboration | Manage GitHub repos, pull requests, and issues directly from terminal — integrates with CI/CD flows. |
+| **Microsoft Graph CLI** | Cloud / API | Command-line access to Microsoft 365 and Azure AD APIs for automation and integration scripting. |
+| **Python** | Scripting / Automation | Automate data collection, build CLI tools, and integrate APIs (used across your GreenPlate & Infinite Two environments). |
+| **Terraform** | IaC (Infrastructure-as-Code) | Build, modify, and version infrastructure predictably using declarative `.tf` files. |
+| **Visual Studio Code (VS Code)** | Editor / Dev | Core IDE for coding, debugging, and integrated terminal work across all project stacks. |
 
----
+### Networking, Security & Troubleshooting Tools
+| Tool | Type | Use For |
+|------|------|---------|
+| **Command Prompt (CMD)** | Shell | Native Windows terminal for quick commands and legacy diagnostics (`ipconfig`, `netstat`, `tracert`). |
+| **Curl** | Web / API | Test HTTP/HTTPS endpoints, APIs, and service health. Useful for backend verification and authentication checks. |
+| **Fiddler / Microsoft Network Monitor** | Web Proxy / Capture | Inspect HTTP(S) traffic between client and server for debugging APIs or auth flows. |
+| **iPerf / PsPing Bandwidth Mode** | Performance | Measure network throughput and bandwidth across endpoints. Useful for VPN and latency testing. |
+| **jq** | CLI Parser | Lightweight JSON processor for filtering and transforming CLI/API output (pairs well with `az` and `curl`). |
+| **Nmap** | Security / Network Discovery | Scan networks and ports to identify reachable hosts and exposed services. |
+| **NSLookup / Dig** | DNS | Query DNS records, verify name resolution, and troubleshoot domain or endpoint issues. |
+| **Ping** | Network | Basic connectivity test to check if a host or IP is reachable and measure latency (ICMP). |
+| **PowerShell** | Shell / Automation | Cross-platform shell for Windows, Linux, and macOS — automate, query APIs, and manage system state. |
+| **PsPing** | Network | Sysinternals network test tool — measures latency, bandwidth, and port reachability for TCP/UDP. |
+| **SSH / OpenSSH** | Connectivity | Securely connect to remote servers or Raspberry Pi devices for configuration and tunneling. |
+| **Sysinternals Suite** | Windows Utilities | Deep Windows diagnostics (Process Explorer, TCPView, PsPing, Autoruns). |
+| **Tcpdump** | Packet Capture (CLI) | CLI packet sniffer for quick network capture and analysis (Linux/macOS). |
+| **Tracert / Traceroute** | Network | Maps hop-by-hop path between systems to identify where connectivity fails. |
+| **Wireshark** | Packet Analysis | Capture and analyze packets in real time for deep troubleshooting and network forensics. |
 
-## 🧰 Core Networking & Diagnostic Tools
+</br>
+</br>
 
-A strong network specialist knows both **cloud** and **OS-level** tools.  
-Here’s a quick lookup table organized by function.
-
-| Tool | OS | Use / Description |
-|------|----|-------------------|
-| **ping** | Win/Linux/macOS | Check reachability (ICMP echo) |
-| **tracert / traceroute** | Win/Linux/macOS | Show path to target, identify hops or blocks |
-| **nslookup / dig** | All | DNS resolution checks |
-| **ipconfig / ifconfig / ip addr** | Win/Linux/macOS | Show interface config & IPs |
-| **netstat** | All | List active connections and listening ports |
-| **telnet / Test-NetConnection / tnc** | Windows/PowerShell | Check port reachability (TCP) |
-| **psping** | Windows | Advanced ping (TCP, UDP, latency and throughput) |
-| **tcping** | Windows/Linux | Quick TCP port checks |
-| **iperf / iperf3** | All | Measure network bandwidth and throughput |
-| **pathping** | Windows | Hybrid of ping + traceroute + loss %
-| **Wireshark** | All | Deep packet inspection (GUI-based capture) |
-| **tcpdump** | Linux/macOS | CLI packet capture for analysis |
-| **netcat (nc)** | Linux/macOS | Test sockets and port listening easily |
-| **PowerShell Cloud Shell (az / pwsh)** | Azure / Web | Run Azure CLI or PowerShell directly from portal |
-| **az network watcher test-connectivity** | Azure CLI | Check reachability between Azure resources |
-| **az network watcher packet-capture** | Azure CLI | Trigger capture remotely on VMs |
-| **Log Analytics (KQL)** | Azure Portal | Query NSG flow logs, connection events |
-| **Wireshark + ETL (Event Trace Log)** | Windows | Local trace for TCP/SMB/HTTP diagnostics |
-| **Azure Resource Graph** | Azure | Query resource relationships & dependencies |
-
-> Each of these can be expanded later into its own micro-guide with screenshots, examples, and safe testing procedures.
-
----
-
-## 🧭 General Troubleshooting Approach
-
-1. **Define the problem clearly.**  
-   What user, system, or process is affected? When did it start?
-2. **Verify connectivity.**  
-   Ping or test the next-hop (gateway, DNS, or endpoint).
-3. **Check routing & access.**  
-   Review NSGs, firewalls, VPNs, and peering paths.
-4. **Validate app layer.**  
-   Curl or browser test (for APIs, use `/health` endpoints).
-5. **Check DNS resolution.**  
-   Wrong or missing records often break private endpoint traffic.
-6. **Gather logs.**  
-   NSG flows, app logs, and Azure Monitor metrics — timestamped.
-7. **Correlate events.**  
-   Match network logs to app metrics or user reports.
-8. **Reproduce & confirm fix.**  
-   After changes, retest to prove restoration.
-
-> Save logs privately and share only with authorized troubleshooters — protecting sensitive IPs and credentials.
-
----
-
-## 💡 Key Azure-Specific Scenarios
-
-| Symptom | Likely Checkpoints |
-|----------|-------------------|
-| VM can’t reach API | NSG rules, UDR route, private endpoint DNS |
-| App Service can’t reach DB | VNet integration subnet, DNS zone mapping |
-| Private Endpoint not resolving | Missing or wrong private DNS zone link |
-| VNet peering not working | Use “Allow forwarded traffic” on both sides |
-| Intermittent latency | Cross-region hops, bandwidth throttling, noisy neighbor, or App Service Plan under power |
-| “Site down” alerts with 200 OK responses | WAF or Front Door caching stale responses |
-
----
-
-## 📊 Performance Metrics to Watch
-
-| Metric | Normal Range | When to Investigate |
-|--------|---------------|--------------------|
-| **Ping latency** | < 50 ms (in-region) | > 100 ms consistent |
-| **Packet loss** | 0–1 % | Any > 2 % sustained |
-| **Throughput** | 80–90 % of link cap | Drops < 50 % unexpectedly |
-| **Jitter** | < 10 ms | Spikes cause video/VoIP issues |
-| **DNS resolution time** | < 100 ms | Long lookups indicate DNS chaining |
-
----
-
-## 🧩 Collecting Evidence Ethically
-
-Always follow these when capturing data:
-- Mask sensitive IPs or usernames when sharing logs.  
-- Use test networks or anonymized environments when possible.  
-- Don’t run packet captures on production traffic unless approved.  
-- Delete captured data after analysis or retention period.  
-- Never export customer or private data off secured systems.
-
-> The goal is to **empower anyone** — even non-network specialists — to gather useful, non-sensitive data for experts to review.
-
----
-
-## 🔄 Next Expansion Plan
-
-Later, we’ll extend this chapter with:
-- Individual tool mini-guides (Wireshark, tcpdump, iperf, etc.)  
-- Walkthroughs for **Azure Network Watcher captures**  
-- Step-by-step examples of **“circular captures”** for intermittent events  
-- Deep-dive scenarios: DNS delay, TCP reset tracing, latency correlation  
-- Example scripts to collect logs safely and reproducibly  
-
-These will form a **practical toolkit** for both cloud engineers and support teams to diagnose network and app issues confidently.
-
----
-
-## 📚 Resources to Add Later
-- [ ] Azure Network Watcher documentation & tutorials  
-- [ ] Microsoft “Troubleshoot Network Connectivity” learning path  
-- [ ] Wireshark official user guide + sample filters  
-- [ ] iperf3 documentation & usage calculator  
-- [ ] Ethical data collection & privacy checklist  
-
----
-
-_Last updated: {{ insert date }}_
+_Last updated: October 18th, 2025_
