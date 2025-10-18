@@ -87,6 +87,8 @@ Each entry links to its own focused page for syntax, examples, and quick testing
 | **Terraform** | IaC (Infrastructure-as-Code) | Build, modify, and version infrastructure predictably using declarative `.tf` files. |
 | **Visual Studio Code (VS Code)** | Editor / Dev | Core IDE for coding, debugging, and integrated terminal work across all project stacks. |
 
+</br>
+
 ### Networking, Security & Troubleshooting Tools
 | Tool | Type | Use For |
 |------|------|---------|
