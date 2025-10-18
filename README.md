@@ -1,8 +1,8 @@
 
 # My Networking Handbook 
 
-## Intro
-This handbook is a simple guide with basic networking ideas. It’s made for quick and easy reference when working with today’s modern networks.
+## Introduction
+This handbook is a simple guide with basic networking concepts. It's meant to serve as a quick reference sheet when working with today's modern hybrid networks. 
 
 ## Content
 
