@@ -28,6 +28,8 @@ The **goal** should be: Observe → Isolate → Test → Verify → Resolve → 
 6. **Implement Resolution** - Apply the smallest effective fix, verify recovery, and monitor for stability.
 7. **Document Findings** - Capture root cause, resolution, and lessons learned to prevent future recurrence.
 
+</br>
+
 ---
 
 ## OSI Model Quick Reference
@@ -47,6 +49,8 @@ The OSI model helps you visualize where communication might break down. Each lay
 > **Please Do Not Throw Sausage Pizza Away**  
 > _(Physical → Data Link → Network → Transport → Session → Presentation → Application)_
 
+</br>
+
 ---
 
 ## Understanding Latency, Bandwidth & Throughput
@@ -62,6 +66,8 @@ The OSI model helps you visualize where communication might break down. Each lay
 
 ### Quick Diagnostic Flow
 > **Symptom → Scope → Reproduce → Isolate → Test → Resolve → Verify → Document**
+
+</br>
 
 ---
 
