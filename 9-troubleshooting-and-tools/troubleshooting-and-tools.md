@@ -9,12 +9,11 @@
 - [Tools Reference Library](#tools-reference-library)
 
 </br>
-</br>
+
+---
 
 # Troubleshooting & Tools 
 A quick reference guide for diagnosing issues across networks, applications, and services, along with commonly used tools in modern environments.
-
-</br>
 
 ## Troubleshooting Mindset 
 When troubleshooting, the goal is to solve an error, restore a service, or determine root cause with simplicity and speed. </br>
@@ -29,7 +28,7 @@ The **goal** should be: Observe → Isolate → Test → Verify → Resolve → 
 6. **Implement Resolution** - Apply the smallest effective fix, verify recovery, and monitor for stability.
 7. **Document Findings** - Capture root cause, resolution, and lessons learned to prevent future recurrence.
 
-</br>
+---
 
 ## OSI Model Quick Reference
 The OSI model helps you visualize where communication might break down. Each layer handles a different part of how systems talk - from physical signals to the applications users interact with. When tracing an issue, think layer by layer to pinpoint whether the fault is in the wire, a network device, or the software stack.
@@ -48,7 +47,7 @@ The OSI model helps you visualize where communication might break down. Each lay
 > **Please Do Not Throw Sausage Pizza Away**  
 > _(Physical → Data Link → Network → Transport → Session → Presentation → Application)_
 
-</br>
+---
 
 ## Understanding Latency, Bandwidth & Throughput
 | Concept | Meaning | Example |
@@ -64,7 +63,7 @@ The OSI model helps you visualize where communication might break down. Each lay
 ### Quick Diagnostic Flow
 > **Symptom → Scope → Reproduce → Isolate → Test → Resolve → Verify → Document**
 
-</br>
+---
 
 ## Tools Reference Library
 A growing list of practical tools, commands, and utilities used across real troubleshooting workflows - from networking to coding and automation.  
@@ -110,5 +109,7 @@ Each entry links to its own focused page for syntax, examples, and quick testing
 
 </br>
 </br>
+
+---
 
 _Last updated: October 18th, 2025_
