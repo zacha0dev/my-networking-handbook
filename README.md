@@ -1,8 +1,8 @@
 
 # My Networking Handbook 
 
-## Introduction
-This handbook is a simple guide with basic networking concepts. It's meant to serve as a quick reference sheet when working with today's modern hybrid networks. 
+## Intro
+This handbook is a simple guide with basic networking ideas. It’s made for quick and easy reference when working with today’s modern networks.
 
 ## Content
 
@@ -18,13 +18,26 @@ This handbook is a simple guide with basic networking concepts. It's meant to se
 
 </br>
 
-![Netowrking Image](https://images.unsplash.com/photo-1655635643486-a17bc48771ff?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1332)
+---
+
+### Disclaimer
+By cloning, deploying, or executing any scripts in this repository, you acknowledge that all usage is at your own risk and expense. These labs are for **educational and sandbox use only**. See the [LICENSE](./LICENSE) file for full terms and disclaimers.
 
 ### Contributions
-Feel free to fork this repo or open issues, but direct pushes are restricted.
+Contributions are welcome! If you’d like to improve a lab, fix a script, or add new examples:
+
+1. Fork this repo
+2. Create a branch `(feature/*)`
+3. Submit a pull request
+
+> Direct pushes to `main` are restricted.
 
 ### Connect With Me 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue "LinkedIn")](https://www.linkedin.com/in/zacharythomasallen/) - [![GitHub](https://img.shields.io/badge/GitHub-Profile-black "GitHub")](https://github.com/zacha0dev)
 
-_Last updated: October 2025_  
-_Version: 1.0 (Initial Release)_
+</br>
+
+---
+
+**Version:** 1.0  
+**Last Updated:** October, 2025

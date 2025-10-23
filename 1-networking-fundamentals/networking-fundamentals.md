@@ -1,5 +1,7 @@
 ([go-home](../README.md))
 
+# Networking Fundamentals 
+
 # 🌐 Networking Fundamentals
 
 Goal: Learn the basic ideas that make computers talk to each other, and have a quick place to look things up when you forget.
