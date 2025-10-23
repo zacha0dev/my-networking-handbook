@@ -88,7 +88,7 @@ There are two main versions of IP addresses in use today:
 
 > 💡 **Tip:** IPv4 and IPv6 can coexist. Many modern networks use both at the same time during the transition period.
 
-Checkout: [IP Addressing Cheat Sheet](..\9-troubleshooting-and-tools\cheat-sheets\ip-addressing-cheat-sheet.md)
+Checkout: [IP Addressing Cheat Sheet](../9-troubleshooting-and-tools/cheat-sheets/ip-addressing-cheat-sheet.md)
 
 ### Private and Public IP Ranges
 IP addresses fall into two categories:
@@ -196,13 +196,13 @@ Firewalls and routers use port numbers to allow or block specific traffic types.
 | 3389 | RDP | Remote desktop |
 | 161 | SNMP | Network monitoring |
 
-Checkout: [Ports & Protocols Cheat Sheet](..\9-troubleshooting-and-tools\cheat-sheets\ports-and-protocols-cheat-sheet.md)
+Checkout: [Ports & Protocols Cheat Sheet](../9-troubleshooting-and-tools/cheat-sheets/ports-and-protocols-cheat-sheet.md)
 
 ## Final Thoughts
 Networking is everywhere - homes, schools, hospitals, satellites, and even wearables. Learning how it all works turns the “internet” from a mystery into a system you can understand, control, and build upon. Once you grasp these fundamentals - **addressing, routing, DNS, and OSI layers** - you can: (1) Design small networks confidently, (2) Troubleshoot issues methodically, (3) Communicate better with other engineers, (4) Understand how every cloud service ultimately relies on these same physical and logical layers.
 
 ## Next 
-Continue: [Cloud Overview](..\2-cloud-overview\cloud-overview.md)
+Continue: [Cloud Overview](../2-cloud-overview/cloud-overview.md)
 
 
 
